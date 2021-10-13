@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">M2Mobi Android Assessment</string>
+    <string name="alert_retry">Retry</string>
+    <string name="alert_cancel">Cancel</string>
+    <string name="button_refresh">Refresh</string>
+    <string name="error_message_images">Failed to fetch images… Pull to refresh!</string>
+    <string name="error_message_comments">Failed to fetch comments… Pull to refresh!</string>
+    <string name="item_image_content_description">image</string>
+    <string name="comments_title">Comments</string>
+    <string name="comments_author">By %s</string>
+    <string name="detail_image_content_description">Detail image</string>
+</resources>

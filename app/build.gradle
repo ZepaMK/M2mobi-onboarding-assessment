@@ -1,0 +1,71 @@
+plugins {
+    id 'com.android.application'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion compile_sdk_version
+    buildToolsVersion build_tools_version
+
+    defaultConfig {
+        applicationId "com.unitsendtest.m2mobiandroidassessment"
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode version_code
+        versionName version_name
+    }
+
+    buildTypes {
+        all {
+            buildConfigField "String", "BASE_URL", "\"https://jsonplaceholder.typicode.com/\""
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility jvm_version
+        targetCompatibility jvm_version
+    }
+    kotlinOptions {
+        jvmTarget = jvm_version
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+    implementation project(path: ':presentation')
+    implementation project(path: ':data')
+    implementation project(path: ':domain')
+    implementation "androidx.core:core-ktx:$core_ktx_version"
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    testImplementation 'junit:junit:4.13.2'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    kapt 'com.github.bumptech.glide:compiler:4.12.0'
+
+    // Dagger
+    implementation "com.google.dagger:hilt-android:$dagger_hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$dagger_hilt_version"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$android_lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$android_lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$android_lifecycle_version"
+
+    //Epoxy
+    implementation "com.airbnb.android:epoxy:$epoxy_version"
+    implementation "com.airbnb.android:epoxy-databinding:$epoxy_version"
+    kapt "com.airbnb.android:epoxy-processor:$epoxy_version"
+}

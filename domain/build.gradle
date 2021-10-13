@@ -1,0 +1,27 @@
+plugins {
+    id 'kotlin'
+    id 'kotlin-kapt'
+}
+
+java {
+    sourceCompatibility = jvm_version
+    targetCompatibility = jvm_version
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+
+    implementation "javax.inject:javax.inject:1"
+
+    testImplementation "com.m2mobi.utility:test:$m2utility_version"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = jvm_version
+    kotlinOptions.freeCompilerArgs += ['-Xopt-in=kotlin.time.ExperimentalTime']
+}
+

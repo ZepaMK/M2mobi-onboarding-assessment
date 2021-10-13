@@ -1,0 +1,55 @@
+buildscript {
+    ext {
+
+        version_code = 1
+        version_name = "1.0"
+
+        min_sdk_version = 30
+        compile_sdk_version = 30
+        target_sdk_version = 30
+        build_tools_version = "30.0.3"
+
+        kotlin_version = "1.4.32"
+        coroutines_version = '1.4.0'
+
+        live_data_extensions_version = '1.3.0'
+
+        dagger_hilt_version = '2.38.1'
+
+        android_lifecycle_version = '2.3.1'
+
+        retrofit_version = '2.9.0'
+
+        room_version = "2.3.0"
+
+        core_ktx_version = "1.6.0"
+        jvm_version = JavaVersion.VERSION_1_8
+
+        m2utility_version = '0.0.10'
+
+        epoxy_version = "4.1.0"
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.3"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$dagger_hilt_version"
+        classpath "de.mannodermaus.gradle.plugins:android-junit5:1.7.1.1"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
